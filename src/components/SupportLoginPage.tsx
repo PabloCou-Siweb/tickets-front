@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import './SupportLoginPage.css';
 
 interface SupportLoginPageProps {
-  onBackToCreate: () => void;
+  onLoginSuccess?: () => void;
+  onBackToCreate?: () => void;
 }
 
-const SupportLoginPage: React.FC<SupportLoginPageProps> = ({ onBackToCreate }) => {
+const SupportLoginPage: React.FC<SupportLoginPageProps> = ({ onLoginSuccess, onBackToCreate }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -29,6 +30,9 @@ const SupportLoginPage: React.FC<SupportLoginPageProps> = ({ onBackToCreate }) =
     e.preventDefault();
     console.log('Support login submitted:', formData);
     // Aquí iría la lógica de autenticación para soporte
+    if (onLoginSuccess) {
+      onLoginSuccess();
+    }
   };
 
   return (
@@ -63,7 +67,7 @@ const SupportLoginPage: React.FC<SupportLoginPageProps> = ({ onBackToCreate }) =
             {/* Login Form */}
             <form className="login-form" onSubmit={handleSubmit}>
               <h3 className="form-title">Inicia sesión</h3>
-              
+
               <div className="form-group">
                 <label htmlFor="email" className="form-label">Correo electrónico</label>
                 <input
@@ -114,11 +118,13 @@ const SupportLoginPage: React.FC<SupportLoginPageProps> = ({ onBackToCreate }) =
               </button>
               
               {/* Back Link */}
-              <div className="back-section">
-                <span onClick={onBackToCreate} className="back-link">
-                  Volver
-                </span>
-              </div>
+              {onBackToCreate && (
+                <div className="back-section">
+                  <span onClick={onBackToCreate} className="back-link">
+                    Crear ticket
+                  </span>
+                </div>
+              )}
             </form>
           </div>
         </div>
