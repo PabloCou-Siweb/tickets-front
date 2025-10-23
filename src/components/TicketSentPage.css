@@ -1,0 +1,373 @@
+/* Ticket Sent Page Styles - Completely isolated styles */
+.ticket-sent-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa;
+  position: relative;
+  isolation: isolate; /* Creates a new stacking context */
+}
+
+/* Main Content - Ticket Sent Page Specific */
+.ticket-sent-page .main-content {
+  flex: 1;
+  padding: 60px 40px;
+}
+
+/* Main Container - The big container divided in 2 - Ticket Sent Page Specific */
+.ticket-sent-page .main-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 55% 2% 43%;
+  gap: 0;
+  align-items: stretch;
+  background-color: white; /* White background for the entire container */
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+/* Left Panel - Blue Section - Ticket Sent Page Specific */
+.ticket-sent-page .left-panel {
+  background-color: #E5F6FF; /* Blue background */
+  padding: 60px 40px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  justify-content: center;
+  min-height: 700px;
+  margin: 20px; /* This creates the margin from the main container borders */
+  border-radius: 16px; /* Rounded borders for the blue panel */
+}
+
+/* Image Container - Internal div with white background that doesn't touch the borders - Ticket Sent Page Specific */
+.ticket-sent-page .image-container {
+  background: none; /* No background for the image container */
+  border-radius: 24px;
+  padding: 0;
+  box-shadow: none;
+  margin: 20px;
+  /* This creates the margin from the blue panel borders */
+}
+
+.ticket-sent-page .support-image {
+  width: 420px;
+  height: auto;
+  display: block;
+  background: none; /* No background for the image */
+}
+
+.ticket-sent-page .info-text {
+  text-align: center;
+  color: #929293;
+  line-height: 1.6;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  padding: 0 20px;
+  max-width: 500px;
+}
+
+/* Separator - Ticket Sent Page Specific */
+.ticket-sent-page .separator {
+  background-color: transparent;
+  width: 100%;
+}
+
+/* Right Panel - Confirmation Section - Ticket Sent Page Specific */
+.ticket-sent-page .right-panel {
+  background-color: white;
+  padding: 50px;
+}
+
+.ticket-sent-page .confirmation-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.ticket-sent-page .airplane-icon {
+  margin-bottom: 40px;
+}
+
+.ticket-sent-page .airplane-icon img {
+  width: 320px;
+  height: 160px;
+  object-fit: contain;
+}
+
+.ticket-sent-page .confirmation-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 16px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.ticket-sent-page .confirmation-header p {
+  color: #6b7280;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.5;
+}
+
+.ticket-sent-page .ticket-id-section {
+  margin-bottom: 20px;
+}
+
+.ticket-sent-page .ticket-id-box {
+  background-color: #E5F6FF;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 15px;
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ticket-sent-page .ticket-id {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2FA8EC;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.ticket-sent-page .ticket-instructions {
+  text-align: center;
+}
+
+.ticket-sent-page .ticket-instructions p {
+  color: #6b7280;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.ticket-sent-page .instruction-bold {
+  font-weight: 700;
+  color: #000000;
+}
+
+.ticket-sent-page .action-section {
+  text-align: center;
+}
+
+.ticket-sent-page .btn-exit {
+  background-color: #6b7280;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ticket-sent-page .btn-exit:hover {
+  background-color: #4b5563;
+}
+
+/* Privacy and Terms Text - Outside the main container - Ticket Sent Page Specific */
+.ticket-sent-page .privacy-terms-text {
+  text-align: center;
+  color: #6b7280;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 40px;
+  padding-top: 0;
+  border-top: none;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ticket-sent-page .privacy-terms-text span:first-child {
+  margin-right: 30px;
+}
+
+/* Responsive Design - Ticket Sent Page Specific */
+@media (max-width: 1024px) {
+  .ticket-sent-page .main-container {
+    grid-template-columns: 1fr;
+  }
+
+  .ticket-sent-page .left-panel {
+    min-height: auto;
+    padding: 40px 30px;
+  }
+
+  .ticket-sent-page .right-panel {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ticket-sent-page .main-content {
+    padding: 20px 10px;
+  }
+
+  .ticket-sent-page .main-container {
+    border-radius: 12px;
+  }
+
+  .ticket-sent-page .left-panel {
+    padding: 30px 20px;
+    gap: 25px;
+  }
+
+  .ticket-sent-page .image-container {
+    padding: 25px;
+    margin: 15px;
+  }
+
+  .ticket-sent-page .support-image {
+    width: 180px;
+  }
+
+  .ticket-sent-page .info-text {
+    font-size: 16px;
+    margin-bottom: 25px;
+    padding: 0 20px;
+    max-width: 280px;
+  }
+
+  .ticket-sent-page .right-panel {
+    padding: 30px;
+  }
+
+  .ticket-sent-page .confirmation-header {
+    margin-bottom: 30px;
+  }
+
+  .ticket-sent-page .confirmation-header h1 {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+
+  .ticket-sent-page .confirmation-header p {
+    font-size: 15px;
+  }
+
+  .ticket-sent-page .ticket-id-section {
+    margin-bottom: 20px;
+  }
+
+  .ticket-sent-page .ticket-id {
+    font-size: 18px;
+  }
+
+  .ticket-sent-page .ticket-instructions p {
+    font-size: 13px;
+  }
+
+  .ticket-sent-page .instruction-bold {
+    font-weight: 700;
+    color: #000000;
+  }
+
+  .ticket-sent-page .airplane-icon img {
+    width: 260px;
+    height: 130px;
+  }
+
+  .ticket-sent-page .btn-exit {
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+
+  .ticket-sent-page .privacy-terms-text {
+    font-size: 15px;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ticket-sent-page .main-content {
+    padding: 15px 8px;
+  }
+
+  .ticket-sent-page .main-container {
+    border-radius: 8px;
+  }
+
+  .ticket-sent-page .left-panel {
+    padding: 25px 15px;
+    gap: 20px;
+  }
+
+  .ticket-sent-page .image-container {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .ticket-sent-page .support-image {
+    width: 150px;
+  }
+
+  .ticket-sent-page .info-text {
+    font-size: 14px;
+    margin-bottom: 20px;
+    padding: 0 15px;
+    max-width: 220px;
+  }
+
+  .ticket-sent-page .right-panel {
+    padding: 25px;
+  }
+
+  .ticket-sent-page .confirmation-header {
+    margin-bottom: 25px;
+  }
+
+  .ticket-sent-page .confirmation-header h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .ticket-sent-page .confirmation-header p {
+    font-size: 14px;
+  }
+
+  .ticket-sent-page .ticket-id-section {
+    margin-bottom: 20px;
+  }
+
+  .ticket-sent-page .ticket-id-box {
+    padding: 16px;
+    max-width: 180px;
+  }
+
+  .ticket-sent-page .ticket-id {
+    font-size: 16px;
+  }
+
+  .ticket-sent-page .ticket-instructions p {
+    font-size: 12px;
+  }
+
+  .ticket-sent-page .instruction-bold {
+    font-weight: 700;
+    color: #000000;
+  }
+
+  .ticket-sent-page .airplane-icon img {
+    width: 200px;
+    height: 100px;
+  }
+
+  .ticket-sent-page .btn-exit {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  .ticket-sent-page .privacy-terms-text {
+    font-size: 14px;
+    margin-top: 25px;
+  }
+}

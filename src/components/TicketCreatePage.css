@@ -1,0 +1,778 @@
+/* Ticket Create Page Styles - Completely isolated styles */
+.ticket-create-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa;
+  position: relative;
+  isolation: isolate; /* Creates a new stacking context */
+}
+
+/* Support Link - Ticket Create Page Specific */
+.ticket-create-page .support-link {
+  text-align: right;
+  padding: 0 40px;
+  margin-top: 20px;
+}
+
+.ticket-create-page .support-link-text {
+  color: #2FA8EC;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.ticket-create-page .support-link-text:hover {
+  color: #1e90ff;
+  text-decoration: underline;
+}
+
+/* Main Content - Ticket Create Page Specific */
+.ticket-create-page .main-content {
+  flex: 1;
+  padding: 60px 40px;
+}
+
+/* Main Container - The big container divided in 2 - Ticket Create Page Specific */
+.ticket-create-page .main-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 55% 2% 43%;
+  gap: 0;
+  align-items: stretch;
+  background-color: white; /* White background for the entire container */
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+/* Left Panel - Blue Section - Ticket Create Page Specific */
+.ticket-create-page .left-panel {
+  background-color: #E5F6FF; /* Blue background */
+  padding: 60px 40px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  justify-content: center;
+  min-height: 700px;
+  margin: 20px; /* This creates the margin from the main container borders */
+  border-radius: 16px; /* Rounded borders for the blue panel */
+}
+
+/* Image Container - Internal div with white background that doesn't touch the borders - Ticket Create Page Specific */
+.ticket-create-page .image-container {
+  background: none; /* No background for the image container */
+  border-radius: 24px;
+  padding: 0;
+  box-shadow: none;
+  margin: 20px;
+  /* This creates the margin from the blue panel borders */
+}
+
+.ticket-create-page .support-image {
+  width: 420px;
+  height: auto;
+  display: block;
+  background: none; /* No background for the image */
+}
+
+.ticket-create-page .info-text {
+  text-align: center;
+  color: #929293;
+  line-height: 1.6;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  padding: 0 20px;
+  max-width: 500px;
+}
+
+.ticket-create-page .draft-section {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.ticket-create-page .draft-section h3 {
+  color: #929293;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.ticket-create-page .draft-input-container {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 12px 18px;
+  gap: 12px;
+  max-width: 300px;
+  margin: 0 auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-create-page .draft-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  color: #374151;
+}
+
+.ticket-create-page .draft-arrow {
+  background: none;
+  border: none;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.ticket-create-page .draft-arrow img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Separator - Ticket Create Page Specific */
+.ticket-create-page .separator {
+  background-color: transparent;
+  width: 100%;
+}
+
+/* Right Panel - Form Section - Ticket Create Page Specific */
+.ticket-create-page .right-panel {
+  background-color: white;
+  padding: 50px;
+}
+
+.ticket-create-page .form-header {
+  margin-bottom: 30px;
+}
+
+.ticket-create-page .form-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 12px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.ticket-create-page .form-header p {
+  color: #6b7280;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.ticket-create-page .ticket-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ticket-create-page .form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ticket-create-page .section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 6px;
+}
+
+.ticket-create-page .section-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.ticket-create-page .section-header h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f2937;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.ticket-create-page .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ticket-create-page .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.ticket-create-page .form-group label {
+  font-weight: 500;
+  color: #374151;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.ticket-create-page .form-input,
+.ticket-create-page .form-textarea,
+.ticket-create-page .form-select {
+  padding: 10px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: white;
+}
+
+.ticket-create-page .form-input:focus,
+.ticket-create-page .form-textarea:focus,
+.ticket-create-page .form-select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.ticket-create-page .form-textarea {
+  resize: none;
+  min-height: 40px;
+}
+
+.ticket-create-page .file-upload-section {
+  margin: 8px 0;
+}
+
+.ticket-create-page .file-upload-area {
+  border: 2px dashed #d1d5db;
+  border-radius: 16px;
+  padding: 30px 20px;
+  text-align: center;
+  background-color: #f9fafb;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.ticket-create-page .file-upload-area:hover {
+  border-color: #3b82f6;
+  background-color: #f0f9ff;
+}
+
+.ticket-create-page .upload-icon {
+  width: 36px;
+  height: 36px;
+  margin: 0 auto 16px;
+  display: block;
+}
+
+.ticket-create-page .file-upload-area p {
+  color: #374151;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.ticket-create-page .file-info {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.ticket-create-page .privacy-section {
+  margin: 8px 0;
+}
+
+.ticket-create-page .checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  cursor: pointer;
+}
+
+.ticket-create-page .checkbox-input {
+  margin: 0;
+  width: 20px;
+  height: 20px;
+  accent-color: #6699FF;
+  border-radius: 50%;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 2px solid #BCBEC0;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.ticket-create-page .checkbox-input:checked {
+  background-color: #6699FF;
+  border: none;
+}
+
+.ticket-create-page .checkbox-input:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.ticket-create-page .checkbox-text {
+  color: #B3B3B3;
+  font-size: 11px;
+  line-height: 1.3;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.ticket-create-page .form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.ticket-create-page .btn-primary,
+.ticket-create-page .btn-secondary {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex: 1;
+}
+
+.ticket-create-page .btn-primary {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+}
+
+.ticket-create-page .btn-primary:hover {
+  background-color: #2563eb;
+}
+
+.ticket-create-page .btn-secondary {
+  background-color: white;
+  color: #2FA8EC;
+  border: 1px solid #2FA8EC;
+}
+
+.ticket-create-page .btn-secondary:hover {
+  background-color: #f0f9ff;
+  border-color: #1e90ff;
+}
+
+/* Privacy and Terms Text - Outside the main container - Ticket Create Page Specific */
+.ticket-create-page .privacy-terms-text {
+  text-align: center;
+  color: #6b7280;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 40px;
+  padding-top: 0;
+  border-top: none;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ticket-create-page .privacy-terms-text span:first-child {
+  margin-right: 30px;
+}
+
+/* Responsive Design - Ticket Create Page Specific */
+@media (max-width: 1024px) {
+  .ticket-create-page .main-container {
+    grid-template-columns: 1fr;
+  }
+
+  .ticket-create-page .left-panel {
+    min-height: auto;
+    padding: 40px 30px;
+  }
+
+  .ticket-create-page .right-panel {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ticket-create-page .support-link {
+    padding: 0 20px;
+    margin-top: 15px;
+  }
+
+  .ticket-create-page .support-link-text {
+    font-size: 15px;
+  }
+
+  .ticket-create-page .main-content {
+    padding: 20px 10px;
+  }
+
+  .ticket-create-page .main-container {
+    border-radius: 12px;
+  }
+
+  .ticket-create-page .left-panel {
+    padding: 30px 20px;
+    gap: 25px;
+  }
+
+  .ticket-create-page .image-container {
+    padding: 25px;
+    margin: 15px;
+  }
+
+  .ticket-create-page .support-image {
+    width: 180px;
+  }
+
+  .ticket-create-page .info-text {
+    font-size: 16px;
+    margin-bottom: 25px;
+    padding: 0 20px;
+    max-width: 280px;
+  }
+
+  .ticket-create-page .draft-section h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .ticket-create-page .draft-input-container {
+    padding: 10px 15px;
+    gap: 10px;
+    max-width: 220px;
+  }
+
+  .ticket-create-page .draft-input {
+    font-size: 14px;
+  }
+
+  .ticket-create-page .draft-arrow {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+
+  .ticket-create-page .right-panel {
+    padding: 30px;
+  }
+
+  .ticket-create-page .form-header {
+    margin-bottom: 25px;
+  }
+
+  .ticket-create-page .form-header h1 {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+
+  .ticket-create-page .form-header p {
+    font-size: 18px;
+  }
+
+  .ticket-create-page .ticket-form {
+    gap: 25px;
+  }
+
+  .ticket-create-page .form-section {
+    gap: 18px;
+  }
+
+  .ticket-create-page .section-header {
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .ticket-create-page .section-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .ticket-create-page .section-header h3 {
+    font-size: 18px;
+  }
+
+  .ticket-create-page .form-group {
+    gap: 8px;
+  }
+
+  .ticket-create-page .form-row {
+    gap: 18px;
+  }
+
+  .ticket-create-page .form-group label {
+    font-size: 15px;
+  }
+
+  .ticket-create-page .form-input,
+  .ticket-create-page .form-textarea,
+  .ticket-create-page .form-select {
+    padding: 12px 16px;
+    font-size: 15px;
+  }
+
+  .ticket-create-page .form-textarea {
+    min-height: 100px;
+  }
+
+  .ticket-create-page .file-upload-section {
+    margin: 25px 0;
+  }
+
+  .ticket-create-page .file-upload-area {
+    padding: 32px 20px;
+  }
+
+  .ticket-create-page .upload-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 12px;
+  }
+
+  .ticket-create-page .file-upload-area p {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .ticket-create-page .file-info {
+    font-size: 14px;
+  }
+
+  .ticket-create-page .privacy-section {
+    margin: 25px 0;
+  }
+
+  .ticket-create-page .checkbox-label {
+    gap: 12px;
+  }
+
+  .ticket-create-page .checkbox-input {
+    width: 18px;
+    height: 18px;
+  }
+
+  .ticket-create-page .checkbox-text {
+    font-size: 15px;
+  }
+
+  .ticket-create-page .form-actions {
+    gap: 18px;
+    margin-top: 35px;
+  }
+
+  .ticket-create-page .btn-primary,
+  .ticket-create-page .btn-secondary {
+    padding: 14px 28px;
+    font-size: 16px;
+  }
+
+  .ticket-create-page .privacy-terms-text {
+    font-size: 15px;
+    margin-top: 30px;
+    padding-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ticket-create-page .support-link {
+    padding: 0 15px;
+    margin-top: 10px;
+  }
+
+  .ticket-create-page .support-link-text {
+    font-size: 14px;
+  }
+
+  .ticket-create-page .main-content {
+    padding: 15px 8px;
+  }
+
+  .ticket-create-page .main-container {
+    border-radius: 8px;
+  }
+
+  .ticket-create-page .left-panel {
+    padding: 25px 15px;
+    gap: 20px;
+  }
+
+  .ticket-create-page .image-container {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .ticket-create-page .support-image {
+    width: 150px;
+  }
+
+  .ticket-create-page .info-text {
+    font-size: 14px;
+    margin-bottom: 20px;
+    padding: 0 15px;
+    max-width: 220px;
+  }
+
+  .ticket-create-page .draft-section h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .ticket-create-page .draft-input-container {
+    padding: 8px 12px;
+    gap: 8px;
+    max-width: 200px;
+  }
+
+  .ticket-create-page .draft-input {
+    font-size: 13px;
+  }
+
+  .ticket-create-page .draft-arrow {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+
+  .ticket-create-page .right-panel {
+    padding: 25px;
+  }
+
+  .ticket-create-page .form-header {
+    margin-bottom: 20px;
+  }
+
+  .ticket-create-page .form-header h1 {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  .ticket-create-page .form-header p {
+    font-size: 16px;
+  }
+
+  .ticket-create-page .ticket-form {
+    gap: 20px;
+  }
+
+  .ticket-create-page .form-section {
+    gap: 15px;
+  }
+
+  .ticket-create-page .section-header {
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .ticket-create-page .section-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .ticket-create-page .section-header h3 {
+    font-size: 16px;
+  }
+
+  .ticket-create-page .form-group {
+    gap: 6px;
+  }
+
+  .ticket-create-page .form-row {
+    grid-template-columns: 1fr; /* Stack columns on small screens */
+    gap: 15px;
+  }
+
+  .ticket-create-page .form-group label {
+    font-size: 14px;
+  }
+
+  .ticket-create-page .form-input,
+  .ticket-create-page .form-textarea,
+  .ticket-create-page .form-select {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+
+  .ticket-create-page .form-textarea {
+    min-height: 80px;
+  }
+
+  .ticket-create-page .file-upload-section {
+    margin: 20px 0;
+  }
+
+  .ticket-create-page .file-upload-area {
+    padding: 28px 16px;
+  }
+
+  .ticket-create-page .upload-icon {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 10px;
+  }
+
+  .ticket-create-page .file-upload-area p {
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+
+  .ticket-create-page .file-info {
+    font-size: 13px;
+  }
+
+  .ticket-create-page .privacy-section {
+    margin: 20px 0;
+  }
+
+  .ticket-create-page .checkbox-label {
+    gap: 10px;
+  }
+
+  .ticket-create-page .checkbox-input {
+    width: 16px;
+    height: 16px;
+  }
+
+  .ticket-create-page .checkbox-text {
+    font-size: 14px;
+  }
+
+  .ticket-create-page .form-actions {
+    gap: 15px;
+    margin-top: 30px;
+    flex-direction: column; /* Stack buttons on small screens */
+  }
+
+  .ticket-create-page .btn-primary,
+  .ticket-create-page .btn-secondary {
+    padding: 12px 24px;
+    font-size: 15px;
+  }
+
+  .ticket-create-page .privacy-terms-text {
+    font-size: 14px;
+    margin-top: 25px;
+    padding-top: 15px;
+  }
+}

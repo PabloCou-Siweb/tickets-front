@@ -1,3 +1,4 @@
+/* Header Usuario - Componente reutilizable para las 3 páginas de usuario */
 .header {
   background-color: white;
   padding: 0;
@@ -9,51 +10,59 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
 }
 
 .logo-section {
   display: flex;
   align-items: center;
+  gap: 8px;
 }
 
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  height: 40px;
+  width: auto;
 }
 
-.logo-icon {
-  font-size: 24px;
+.headphones-icon {
+  height: 36px;
+  width: auto;
 }
 
-.logo-text {
-  font-size: 24px;
-  font-weight: 700;
-  color: #1f2937;
+.soporte-text {
+  font-size: 20px;
+  font-weight: 500;
+  color: #9B9B9D;
+  margin-top: 8px;
 }
 
 .nav-section {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   gap: 4px;
+  flex: 1;
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
 }
 
 .help-text {
-  font-size: 14px;
-  color: #3b82f6;
+  font-size: 20px;
+  color: #2FA8EC;
   font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .current-page {
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 700;
-  color: #1e40af;
-  background-color: #dbeafe;
-  padding: 8px 16px;
-  border-radius: 6px;
+  color: #2FA8EC;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .header-divider {
@@ -62,6 +71,7 @@
   width: 100%;
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
   .header-container {
     padding: 16px 20px;
@@ -70,6 +80,6 @@
   }
   
   .nav-section {
-    align-items: center;
+    order: -1;
   }
 }
