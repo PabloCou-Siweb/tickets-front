@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './TicketCreatePage.css';
 import backgroundSvg from '../assets/page_background.svg';
 import HeaderUsuario from './HeaderUsuario';
-import TicketSentPage from './TicketSentPage';
+import TicketPostedPage from './TicketPostedPage';
 import TicketSavedPage from './TicketSavedPage';
 import SupportLoginPage, { SupportLoginPageProps } from './SupportLoginPage';
 
@@ -59,6 +59,34 @@ const TicketCreatePage: React.FC<TicketCreatePageProps> = ({ onLoginSuccess }) =
     setShowChannelDropdown(false);
   };
 
+  const toggleCategoryDropdown = () => {
+    setShowCategoryDropdown(!showCategoryDropdown);
+    setShowPriorityDropdown(false);
+    setShowProductDropdown(false);
+    setShowChannelDropdown(false);
+  };
+
+  const togglePriorityDropdown = () => {
+    setShowPriorityDropdown(!showPriorityDropdown);
+    setShowCategoryDropdown(false);
+    setShowProductDropdown(false);
+    setShowChannelDropdown(false);
+  };
+
+  const toggleProductDropdown = () => {
+    setShowProductDropdown(!showProductDropdown);
+    setShowCategoryDropdown(false);
+    setShowPriorityDropdown(false);
+    setShowChannelDropdown(false);
+  };
+
+  const toggleChannelDropdown = () => {
+    setShowChannelDropdown(!showChannelDropdown);
+    setShowCategoryDropdown(false);
+    setShowPriorityDropdown(false);
+    setShowProductDropdown(false);
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
@@ -106,7 +134,7 @@ const TicketCreatePage: React.FC<TicketCreatePageProps> = ({ onLoginSuccess }) =
 
   // Si se ha enviado el ticket, mostrar la página de confirmación
   if (showTicketSent) {
-    return <TicketSentPage onBackToCreate={() => {
+    return <TicketPostedPage onBackToCreate={() => {
       setShowTicketSent(false);
       // Scroll to top when returning to TicketCreatePage
       setTimeout(() => {
@@ -239,7 +267,7 @@ const TicketCreatePage: React.FC<TicketCreatePageProps> = ({ onLoginSuccess }) =
                       <button
                         type="button"
                         className="custom-dropdown-button"
-                        onClick={() => setShowChannelDropdown(!showChannelDropdown)}
+                        onClick={toggleChannelDropdown}
                       >
                         <span className="dropdown-text">
                           {formData.communicationChannel ? 
@@ -249,7 +277,7 @@ const TicketCreatePage: React.FC<TicketCreatePageProps> = ({ onLoginSuccess }) =
                             : 'Donde contactamos contigo'
                           }
                         </span>
-                        <span className="dropdown-arrow">▼</span>
+                        <img src="/img/arrow_down-icon.png" alt="▼" className="dropdown-arrow" />
                       </button>
                       {showChannelDropdown && (
                         <div className="custom-dropdown-menu">
@@ -309,7 +337,7 @@ const TicketCreatePage: React.FC<TicketCreatePageProps> = ({ onLoginSuccess }) =
                       <button
                         type="button"
                         className="custom-dropdown-button"
-                        onClick={() => setShowCategoryDropdown(!showCategoryDropdown)}
+                        onClick={toggleCategoryDropdown}
                       >
                         <span className="dropdown-text">
                           {formData.category ? 
@@ -320,7 +348,7 @@ const TicketCreatePage: React.FC<TicketCreatePageProps> = ({ onLoginSuccess }) =
                             : 'Selecciona una categoría'
                           }
                         </span>
-                        <span className="dropdown-arrow">▼</span>
+                        <img src="/img/arrow_down-icon.png" alt="▼" className="dropdown-arrow" />
                       </button>
                       {showCategoryDropdown && (
                         <div className="custom-dropdown-menu">
@@ -347,7 +375,7 @@ const TicketCreatePage: React.FC<TicketCreatePageProps> = ({ onLoginSuccess }) =
                       <button
                         type="button"
                         className="custom-dropdown-button"
-                        onClick={() => setShowPriorityDropdown(!showPriorityDropdown)}
+                        onClick={togglePriorityDropdown}
                       >
                         <span className="dropdown-text">
                           {formData.priority ? 
@@ -357,7 +385,7 @@ const TicketCreatePage: React.FC<TicketCreatePageProps> = ({ onLoginSuccess }) =
                             : 'Indica una prioridad'
                           }
                         </span>
-                        <span className="dropdown-arrow">▼</span>
+                        <img src="/img/arrow_down-icon.png" alt="▼" className="dropdown-arrow" />
                       </button>
                       {showPriorityDropdown && (
                         <div className="custom-dropdown-menu">
@@ -382,7 +410,7 @@ const TicketCreatePage: React.FC<TicketCreatePageProps> = ({ onLoginSuccess }) =
                     <button
                       type="button"
                       className="custom-dropdown-button"
-                      onClick={() => setShowProductDropdown(!showProductDropdown)}
+                      onClick={toggleProductDropdown}
                     >
                       <span className="dropdown-text">
                         {formData.product ? 
@@ -391,7 +419,7 @@ const TicketCreatePage: React.FC<TicketCreatePageProps> = ({ onLoginSuccess }) =
                           : 'Sygna by Siweb'
                         }
                       </span>
-                      <span className="dropdown-arrow">▼</span>
+                      <img src="/img/arrow_down-icon.png" alt="▼" className="dropdown-arrow" />
                     </button>
                     {showProductDropdown && (
                       <div className="custom-dropdown-menu">

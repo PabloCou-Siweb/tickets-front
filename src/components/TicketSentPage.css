@@ -1,373 +1,475 @@
-/* Ticket Sent Page Styles - Completely isolated styles */
-.ticket-sent-page {
+/* ============================================
+   TICKET SENT PAGE - COMPLETE ISOLATION
+   ============================================
+   All styles use tsp- prefix (Ticket Sent Page)
+   to prevent any interference
+   ============================================ */
+
+/* Page Container */
+.tsp-page {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  background-color: #f8f9fa;
-  position: relative;
-  isolation: isolate; /* Creates a new stacking context */
+  isolation: isolate;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* Main Content - Ticket Sent Page Specific */
-.ticket-sent-page .main-content {
+/* Reset all children */
+.tsp-page *,
+.tsp-page *::before,
+.tsp-page *::after {
+  box-sizing: border-box;
+}
+
+/* Main Content */
+.tsp-main {
   flex: 1;
-  padding: 60px 40px;
-}
-
-/* Main Container - The big container divided in 2 - Ticket Sent Page Specific */
-.ticket-sent-page .main-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 55% 2% 43%;
-  gap: 0;
-  align-items: stretch;
-  background-color: white; /* White background for the entire container */
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-}
-
-/* Left Panel - Blue Section - Ticket Sent Page Specific */
-.ticket-sent-page .left-panel {
-  background-color: #E5F6FF; /* Blue background */
-  padding: 60px 40px 40px 40px;
+  margin-left: 200px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 20px;
-  justify-content: center;
-  min-height: 700px;
-  margin: 20px; /* This creates the margin from the main container borders */
-  border-radius: 16px; /* Rounded borders for the blue panel */
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
 }
 
-/* Image Container - Internal div with white background that doesn't touch the borders - Ticket Sent Page Specific */
-.ticket-sent-page .image-container {
-  background: none; /* No background for the image container */
-  border-radius: 24px;
-  padding: 0;
-  box-shadow: none;
+/* Content Container */
+.tsp-content {
+  flex: 1;
+  padding: 30px;
+  background-color: white;
   margin: 20px;
-  /* This creates the margin from the blue panel borders */
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.ticket-sent-page .support-image {
-  width: 420px;
-  height: auto;
-  display: block;
-  background: none; /* No background for the image */
+/* Title Section */
+.tsp-title-section {
+  margin-bottom: 30px;
 }
 
-.ticket-sent-page .info-text {
-  text-align: center;
-  color: #929293;
-  line-height: 1.6;
+.tsp-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #2FA8EC;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+}
+
+/* Search and Filter Section */
+.tsp-search-filter-section {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.tsp-search-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 3;
+  min-width: 550px;
+}
+
+.tsp-search-label {
   font-size: 14px;
   font-weight: 500;
-  margin-bottom: 10px;
-  padding: 0 20px;
-  max-width: 500px;
+  color: #374151;
+  font-family: 'Montserrat', sans-serif;
 }
 
-/* Separator - Ticket Sent Page Specific */
-.ticket-sent-page .separator {
-  background-color: transparent;
+.tsp-search-input-wrapper {
+  position: relative;
   width: 100%;
 }
 
-/* Right Panel - Confirmation Section - Ticket Sent Page Specific */
-.ticket-sent-page .right-panel {
-  background-color: white;
-  padding: 50px;
+.tsp-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  opacity: 0.6;
 }
 
-.ticket-sent-page .confirmation-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.ticket-sent-page .airplane-icon {
-  margin-bottom: 40px;
-}
-
-.ticket-sent-page .airplane-icon img {
-  width: 320px;
-  height: 160px;
-  object-fit: contain;
-}
-
-.ticket-sent-page .confirmation-header h1 {
-  font-size: 24px;
-  font-weight: 700;
-  color: #1f2937;
-  margin-bottom: 16px;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.ticket-sent-page .confirmation-header p {
-  color: #6b7280;
-  font-size: 16px;
-  font-family: 'Montserrat', sans-serif;
-  line-height: 1.5;
-}
-
-.ticket-sent-page .ticket-id-section {
-  margin-bottom: 20px;
-}
-
-.ticket-sent-page .ticket-id-box {
-  background-color: #E5F6FF;
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-  margin-bottom: 15px;
-  max-width: 200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.ticket-sent-page .ticket-id {
-  font-size: 20px;
-  font-weight: 700;
-  color: #2FA8EC;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.ticket-sent-page .ticket-instructions {
-  text-align: center;
-}
-
-.ticket-sent-page .ticket-instructions p {
-  color: #6b7280;
+.tsp-search-input {
+  width: 100%;
+  padding: 13px 14px 13px 42px;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
-  margin-bottom: 6px;
-  line-height: 1.4;
+  background-color: white;
+  transition: border-color 0.2s ease;
 }
 
-.ticket-sent-page .instruction-bold {
-  font-weight: 700;
-  color: #000000;
+.tsp-search-input:focus {
+  outline: none;
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
-.ticket-sent-page .action-section {
-  text-align: center;
+/* Filters Container */
+.tsp-filters-container {
+  display: flex;
+  gap: 15px;
+  align-items: flex-end;
+  flex-wrap: nowrap;
+  flex: 4;
+  justify-content: flex-end;
 }
 
-.ticket-sent-page .btn-exit {
-  background-color: #6b7280;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 12px 32px;
-  font-size: 16px;
-  font-weight: 600;
+.tsp-filter-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 180px;
+  gap: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.tsp-filter-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Custom Dropdown - FULLY ISOLATED */
+.tsp-page .tsp-custom-dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.tsp-page .tsp-dropdown-button {
+  width: 100%;
+  min-width: 180px;
+  padding: 13px 14px !important;
+  border: 1px solid #E5E7EB !important;
+  border-radius: 6px;
+  background-color: white !important;
+  color: #374151 !important;
+  font-size: 14px;
   font-family: 'Montserrat', sans-serif;
   cursor: pointer;
-  transition: all 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
 }
 
-.ticket-sent-page .btn-exit:hover {
-  background-color: #4b5563;
+.tsp-page .tsp-dropdown-button:hover {
+  border-color: #3B82F6 !important;
 }
 
-/* Privacy and Terms Text - Outside the main container - Ticket Sent Page Specific */
-.ticket-sent-page .privacy-terms-text {
-  text-align: center;
-  color: #6b7280;
-  font-size: 16px;
+.tsp-page .tsp-dropdown-button:focus {
+  outline: none;
+  border-color: #3B82F6 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.tsp-page .tsp-dropdown-text {
+  flex: 1;
+  text-align: left;
+}
+
+.tsp-page .tsp-dropdown-arrow {
+  width: 12px;
+  height: 12px;
+  opacity: 0.6;
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+
+.tsp-page .tsp-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  margin-top: 4px;
+}
+
+.tsp-page .tsp-dropdown-option {
+  padding: 10px 12px;
+  color: #374151;
+  font-size: 14px;
   font-family: 'Montserrat', sans-serif;
-  margin-top: 40px;
-  padding-top: 0;
-  border-top: none;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
-.ticket-sent-page .privacy-terms-text span:first-child {
-  margin-right: 30px;
+.tsp-page .tsp-dropdown-option:hover {
+  background-color: #E0F2FE;
+  color: #0C4A6E;
 }
 
-/* Responsive Design - Ticket Sent Page Specific */
-@media (max-width: 1024px) {
-  .ticket-sent-page .main-container {
-    grid-template-columns: 1fr;
-  }
-
-  .ticket-sent-page .left-panel {
-    min-height: auto;
-    padding: 40px 30px;
-  }
-
-  .ticket-sent-page .right-panel {
-    padding: 40px;
-  }
+.tsp-page .tsp-dropdown-option:first-child {
+  border-radius: 8px 8px 0 0;
 }
 
+.tsp-page .tsp-dropdown-option:last-child {
+  border-radius: 0 0 8px 8px;
+}
+
+/* Clear Button - FULLY ISOLATED */
+.tsp-page .tsp-filters-container .tsp-clear-button {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 13px 24px !important;
+  background-color: #3B82F6 !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 6px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease !important;
+  min-width: 140px !important;
+  flex-shrink: 0 !important;
+  box-sizing: border-box !important;
+  outline: none !important;
+}
+
+.tsp-page .tsp-filters-container .tsp-clear-button:hover {
+  background-color: #2563EB !important;
+}
+
+.tsp-page .tsp-filters-container .tsp-clear-button:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2) !important;
+}
+
+.tsp-clear-icon {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Table Container */
+.tsp-table-container {
+  overflow-x: auto;
+  margin-bottom: 30px;
+}
+
+.tsp-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.tsp-table th {
+  background-color: #F8FAFC;
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  color: #374151;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.tsp-table td {
+  padding: 16px;
+  border-bottom: 1px solid #F3F4F6;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  color: #374151;
+}
+
+.tsp-table tr:hover {
+  background-color: #F9FAFB;
+}
+
+.tsp-table tr.tsp-selected-row {
+  background-color: #E5F6FF;
+}
+
+.tsp-checkbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #3B82F6;
+}
+
+/* Department Cell */
+.tsp-department-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.tsp-department-cell.support {
+  background-color: #FEF3C7;
+  color: #92400E;
+}
+
+.tsp-department-cell.programming {
+  background-color: #E9F3FF;
+  color: #00ABEF;
+}
+
+.tsp-department-cell.billing {
+  background-color: #D1FAE5;
+  color: #065F46;
+}
+
+.tsp-department-cell.content {
+  background-color: #F3E8FF;
+  color: #6B46C1;
+}
+
+.tsp-department-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tsp-department-dot.support {
+  background-color: #F59E0B;
+}
+
+.tsp-department-dot.programming {
+  background-color: #00ABEF;
+}
+
+.tsp-department-dot.billing {
+  background-color: #10B981;
+}
+
+.tsp-department-dot.content {
+  background-color: #8B5CF6;
+}
+
+/* Client Cell */
+.tsp-client-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.tsp-client-name {
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 2px;
+}
+
+.tsp-client-company {
+  font-size: 12px;
+  color: #6B7280;
+}
+
+/* Manage Button - FULLY ISOLATED */
+.tsp-page .tsp-table .tsp-manage-button {
+  background-color: #3B82F6 !important;
+  color: white !important;
+  border: none !important;
+  padding: 10px 20px !important;
+  border-radius: 6px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease !important;
+  min-width: 100px !important;
+  box-sizing: border-box !important;
+  outline: none !important;
+}
+
+.tsp-page .tsp-table .tsp-manage-button:hover {
+  background-color: #2563EB !important;
+}
+
+.tsp-page .tsp-table .tsp-manage-button:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2) !important;
+}
+
+/* Pagination */
+.tsp-pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.tsp-pagination {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.tsp-page-number {
+  padding: 8px 12px;
+  border: 1px solid #E5E7EB;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tsp-page-number:hover {
+  background-color: #F3F4F6;
+}
+
+.tsp-page-number.active {
+  background-color: #3B82F6;
+  color: white;
+  border-color: #3B82F6;
+}
+
+.tsp-page-dots {
+  padding: 8px 4px;
+  font-size: 14px;
+  color: #6B7280;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .ticket-sent-page .main-content {
-    padding: 20px 10px;
+  .tsp-main {
+    margin-left: 0;
   }
 
-  .ticket-sent-page .main-container {
-    border-radius: 12px;
-  }
-
-  .ticket-sent-page .left-panel {
-    padding: 30px 20px;
-    gap: 25px;
-  }
-
-  .ticket-sent-page .image-container {
-    padding: 25px;
-    margin: 15px;
-  }
-
-  .ticket-sent-page .support-image {
-    width: 180px;
-  }
-
-  .ticket-sent-page .info-text {
-    font-size: 16px;
-    margin-bottom: 25px;
-    padding: 0 20px;
-    max-width: 280px;
-  }
-
-  .ticket-sent-page .right-panel {
-    padding: 30px;
-  }
-
-  .ticket-sent-page .confirmation-header {
-    margin-bottom: 30px;
-  }
-
-  .ticket-sent-page .confirmation-header h1 {
-    font-size: 22px;
-    margin-bottom: 12px;
-  }
-
-  .ticket-sent-page .confirmation-header p {
-    font-size: 15px;
-  }
-
-  .ticket-sent-page .ticket-id-section {
-    margin-bottom: 20px;
-  }
-
-  .ticket-sent-page .ticket-id {
-    font-size: 18px;
-  }
-
-  .ticket-sent-page .ticket-instructions p {
-    font-size: 13px;
-  }
-
-  .ticket-sent-page .instruction-bold {
-    font-weight: 700;
-    color: #000000;
-  }
-
-  .ticket-sent-page .airplane-icon img {
-    width: 260px;
-    height: 130px;
-  }
-
-  .ticket-sent-page .btn-exit {
-    padding: 14px 28px;
-    font-size: 15px;
-  }
-
-  .ticket-sent-page .privacy-terms-text {
-    font-size: 15px;
-    margin-top: 30px;
-  }
-}
-
-@media (max-width: 480px) {
-  .ticket-sent-page .main-content {
-    padding: 15px 8px;
-  }
-
-  .ticket-sent-page .main-container {
-    border-radius: 8px;
-  }
-
-  .ticket-sent-page .left-panel {
-    padding: 25px 15px;
-    gap: 20px;
-  }
-
-  .ticket-sent-page .image-container {
+  .tsp-content {
     padding: 20px;
     margin: 10px;
   }
 
-  .ticket-sent-page .support-image {
-    width: 150px;
+  .tsp-search-filter-section {
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  .ticket-sent-page .info-text {
-    font-size: 14px;
-    margin-bottom: 20px;
-    padding: 0 15px;
-    max-width: 220px;
+  .tsp-search-container {
+    min-width: auto;
   }
 
-  .ticket-sent-page .right-panel {
-    padding: 25px;
+  .tsp-filters-container {
+    flex-wrap: wrap;
   }
 
-  .ticket-sent-page .confirmation-header {
-    margin-bottom: 25px;
-  }
-
-  .ticket-sent-page .confirmation-header h1 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-
-  .ticket-sent-page .confirmation-header p {
-    font-size: 14px;
-  }
-
-  .ticket-sent-page .ticket-id-section {
-    margin-bottom: 20px;
-  }
-
-  .ticket-sent-page .ticket-id-box {
-    padding: 16px;
-    max-width: 180px;
-  }
-
-  .ticket-sent-page .ticket-id {
-    font-size: 16px;
-  }
-
-  .ticket-sent-page .ticket-instructions p {
-    font-size: 12px;
-  }
-
-  .ticket-sent-page .instruction-bold {
-    font-weight: 700;
-    color: #000000;
-  }
-
-  .ticket-sent-page .airplane-icon img {
-    width: 200px;
-    height: 100px;
-  }
-
-  .ticket-sent-page .btn-exit {
-    padding: 12px 24px;
-    font-size: 14px;
-  }
-
-  .ticket-sent-page .privacy-terms-text {
-    font-size: 14px;
-    margin-top: 25px;
+  .tsp-table-container {
+    overflow-x: scroll;
   }
 }
+

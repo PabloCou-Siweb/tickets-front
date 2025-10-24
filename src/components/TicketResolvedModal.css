@@ -1,0 +1,166 @@
+/* ============================================
+   TICKET RESOLVED MODAL - COMPLETE ISOLATION
+   ============================================
+   All styles are 100% isolated using trm- prefix
+   (Ticket Resolved Modal)
+   ============================================ */
+
+/* Modal Overlay */
+.trm-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100000;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Reset all children */
+.trm-overlay *,
+.trm-overlay *::before,
+.trm-overlay *::after {
+  box-sizing: border-box;
+}
+
+/* Modal Container */
+.trm-container {
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  max-width: 550px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  padding: 50px 45px 45px 45px;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  text-align: center;
+}
+
+/* Close Button - FULLY PROTECTED */
+.trm-overlay .trm-container .trm-close-btn {
+  position: absolute !important;
+  top: 22px !important;
+  right: 26px !important;
+  background: transparent !important;
+  border: none !important;
+  font-size: 28px !important;
+  color: #9CA3AF !important;
+  cursor: pointer !important;
+  width: 32px !important;
+  height: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: color 0.2s !important;
+  line-height: 1 !important;
+  font-family: Arial, sans-serif !important;
+  font-weight: 300 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  z-index: 10 !important;
+  box-sizing: border-box !important;
+}
+
+.trm-overlay .trm-container .trm-close-btn:hover {
+  color: #6B7280 !important;
+}
+
+.trm-overlay .trm-container .trm-close-btn:focus {
+  outline: none !important;
+}
+
+/* Icon Container */
+.trm-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+  padding: 0;
+}
+
+.trm-icon {
+  width: 200px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+/* Content */
+.trm-content {
+  margin-bottom: 36px;
+  padding: 0;
+}
+
+.trm-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #111827;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.4;
+  margin: 0 0 14px 0;
+  padding: 0;
+}
+
+.trm-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: #6B7280;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Accept Button - FULLY ISOLATED */
+.trm-overlay .trm-container .trm-accept-btn {
+  background-color: #3B82F6 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  padding: 14px 45px !important;
+  border-radius: 8px !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  display: inline-block !important;
+}
+
+.trm-overlay .trm-container .trm-accept-btn:hover {
+  background-color: #2563EB !important;
+}
+
+.trm-overlay .trm-container .trm-accept-btn:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2) !important;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .trm-container {
+    padding: 35px 30px 30px 30px;
+    max-width: 100%;
+  }
+
+  .trm-icon {
+    width: 160px;
+  }
+
+  .trm-title {
+    font-size: 19px;
+  }
+
+  .trm-subtitle {
+    font-size: 13px;
+  }
+}

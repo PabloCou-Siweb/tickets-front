@@ -4,9 +4,10 @@ import './Sidebar.css';
 interface SidebarProps {
   currentPage: string;
   onLogout?: () => void;
+  onNavigate?: (page: string) => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ currentPage, onLogout }) => {
+const Sidebar: React.FC<SidebarProps> = ({ currentPage, onLogout, onNavigate }) => {
   return (
     <aside className="sidebar">
       <div className="sidebar-content">
@@ -25,7 +26,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, onLogout }) => {
 
         {/* Navigation Items */}
         <nav className="sidebar-navigation">
-          <div className={`sidebar-nav-item ${currentPage === 'Tickets recibidos' ? 'active' : ''}`}>
+          <div className={`sidebar-nav-item ${currentPage === 'Tickets recibidos' ? 'active' : ''}`} onClick={() => onNavigate?.('ticket-received')}>
             <img 
               src="/img/saved-icon.png" 
               alt="Tickets recibidos" 
@@ -34,7 +35,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, onLogout }) => {
             <span className="sidebar-nav-text">Tickets recibidos</span>
           </div>
 
-          <div className={`sidebar-nav-item ${currentPage === 'Tickets enviados' ? 'active' : ''}`}>
+          <div className={`sidebar-nav-item ${currentPage === 'Tickets enviados' ? 'active' : ''}`} onClick={() => onNavigate?.('ticket-sent')}>
             <img 
               src="/img/send-icon.png" 
               alt="Tickets enviados" 
@@ -43,7 +44,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, onLogout }) => {
             <span className="sidebar-nav-text">Tickets enviados</span>
           </div>
 
-          <div className={`sidebar-nav-item ${currentPage === 'Historial' ? 'active' : ''}`}>
+          <div className={`sidebar-nav-item ${currentPage === 'Historial' ? 'active' : ''}`} onClick={() => onNavigate?.('historial')}>
             <img 
               src="/img/to_do-icon.png" 
               alt="Historial" 
@@ -52,7 +53,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, onLogout }) => {
             <span className="sidebar-nav-text">Historial</span>
           </div>
 
-          <div className={`sidebar-nav-item ${currentPage === 'Ajustes' ? 'active' : ''}`}>
+          <div className={`sidebar-nav-item ${currentPage === 'Ajustes' ? 'active' : ''}`} onClick={() => onNavigate?.('ajustes')}>
             <img 
               src="/img/settings-icon.png" 
               alt="Ajustes" 

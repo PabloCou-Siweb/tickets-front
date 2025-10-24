@@ -2,22 +2,27 @@ import React, { useEffect, useState } from 'react';
 import './TicketReceivedPage.css';
 import HeaderSoporte from './HeaderSoporte';
 import Sidebar from './Sidebar';
+import TicketDetailsModal from './TicketDetailsModal';
 import backgroundSvg from '../assets/page_background.svg';
 
 interface TicketReceivedPageProps {
   onBackToCreate?: () => void;
   onLogout?: () => void;
+  onNavigate?: (page: string) => void;
 }
 
-const TicketReceivedPage: React.FC<TicketReceivedPageProps> = ({ onBackToCreate, onLogout }) => {
+const TicketReceivedPage: React.FC<TicketReceivedPageProps> = ({ onBackToCreate, onLogout, onNavigate }) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [showFilter, setShowFilter] = useState('');
-  const [departmentFilter, setDepartmentFilter] = useState('');
-  const [statusFilter, setStatusFilter] = useState('');
+  const [showFilter, setShowFilter] = useState('all');
+  const [departmentFilter, setDepartmentFilter] = useState('all');
+  const [statusFilter, setStatusFilter] = useState('all');
   const [showStatusDropdown, setShowStatusDropdown] = useState(false);
   const [showDepartmentDropdown, setShowDepartmentDropdown] = useState(false);
+  const [showShowFilterDropdown, setShowShowFilterDropdown] = useState(false);
   const [selectedRows, setSelectedRows] = useState<Set<number>>(new Set());
   const [selectAll, setSelectAll] = useState(false);
+  const [selectedTicket, setSelectedTicket] = useState<any>(null);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -25,9 +30,9 @@ const TicketReceivedPage: React.FC<TicketReceivedPageProps> = ({ onBackToCreate,
 
   const handleClearFilters = () => {
     setSearchTerm('');
-    setShowFilter('');
-    setDepartmentFilter('');
-    setStatusFilter('');
+    setShowFilter('all');
+    setDepartmentFilter('all');
+    setStatusFilter('all');
   };
 
   const handleStatusSelect = (status: string) => {
@@ -37,6 +42,29 @@ const TicketReceivedPage: React.FC<TicketReceivedPageProps> = ({ onBackToCreate,
 
   const handleDepartmentSelect = (department: string) => {
     setDepartmentFilter(department);
+    setShowDepartmentDropdown(false);
+  };
+
+  const handleShowFilterSelect = (filter: string) => {
+    setShowFilter(filter);
+    setShowShowFilterDropdown(false);
+  };
+
+  const toggleStatusDropdown = () => {
+    setShowStatusDropdown(!showStatusDropdown);
+    setShowDepartmentDropdown(false);
+    setShowShowFilterDropdown(false);
+  };
+
+  const toggleDepartmentDropdown = () => {
+    setShowDepartmentDropdown(!showDepartmentDropdown);
+    setShowStatusDropdown(false);
+    setShowShowFilterDropdown(false);
+  };
+
+  const toggleShowFilterDropdown = () => {
+    setShowShowFilterDropdown(!showShowFilterDropdown);
+    setShowStatusDropdown(false);
     setShowDepartmentDropdown(false);
   };
 
@@ -73,6 +101,112 @@ const TicketReceivedPage: React.FC<TicketReceivedPageProps> = ({ onBackToCreate,
     }
   };
 
+  const handleManageTicket = (ticketIndex: number) => {
+    // Datos de ejemplo para los tickets
+    const ticketsData = [
+      {
+        id: '#2571-D',
+        clientName: 'Pablo Simón López',
+        clientCompany: 'Kit Digital - Web',
+        phone: '+34 654 25 20 45',
+        creationDate: '15/08/2025',
+        product: 'Kit Digital - Web',
+        department: 'support',
+        status: 'assigned',
+        description: 'No puedo acceder al panel de administración desde hace 3 días cuando intento hacer login me pide contraseña incorrecta aunque estoy usando la correcta y al intentar recuperarla el email no me llega. He probado en varios navegadores y el problema persiste.',
+        comments: [
+          {
+            author: 'Ana',
+            role: 'Soporte',
+            date: '29/06/2025 - 18:25',
+            text: 'Persiste el problema'
+          },
+          {
+            author: 'Rafa',
+            role: 'Soporte',
+            date: '22/06/2025 - 18:25',
+            text: 'He verificado los logs del servidor y parece ser un problema de base de datos.'
+          }
+        ],
+        priority: 'urgent'
+      },
+      // Más datos de ejemplo para otros tickets...
+      {
+        id: '#2571-D',
+        clientName: 'Javi Correa Gómez',
+        clientCompany: 'Sygna',
+        phone: '+34 620 12 34 89',
+        creationDate: '16/08/2025',
+        product: 'Sygna',
+        department: 'support',
+        status: 'assigned',
+        description: 'Solicitud de nueva funcionalidad en el módulo de ventas',
+        comments: [],
+        priority: 'normal'
+      },
+      {
+        id: '#2571-D',
+        clientName: 'Miguel Romero Torres',
+        clientCompany: 'Kit Digital - Web',
+        phone: '+34 610 12 34 56',
+        creationDate: '20/08/2025',
+        product: 'Kit Digital - Web',
+        department: 'programming',
+        status: 'new',
+        description: 'Los reportes no se generan correctamente',
+        comments: [],
+        priority: 'high'
+      },
+      {
+        id: '#2571-D',
+        clientName: 'Pablo Ribeiro López',
+        clientCompany: 'Kit Digital - Web',
+        phone: '+34 613 45 67 89',
+        creationDate: '22/08/2025',
+        product: 'Kit Digital - Web',
+        department: 'programming',
+        status: 'new',
+        description: 'No puedo acceder al panel',
+        comments: [],
+        priority: 'normal'
+      },
+      {
+        id: '#2571-D',
+        clientName: 'Pedro Sánchez Peregil',
+        clientCompany: 'Kit Digital - Web',
+        phone: '+34 614 56 78 90',
+        creationDate: '20/08/2025',
+        product: 'Kit Digital - Web',
+        department: 'programming',
+        status: 'resolved',
+        description: 'Pantalla en blanco',
+        comments: [],
+        priority: 'normal'
+      },
+      {
+        id: '#2571-D',
+        clientName: 'Ana Figueras López',
+        clientCompany: 'Sygna',
+        phone: '+34 623 78 90 12',
+        creationDate: '17/08/2025',
+        product: 'Sygna',
+        department: 'programming',
+        status: 'resolved',
+        description: 'Pantalla en blanco',
+        comments: [],
+        priority: 'normal'
+      }
+    ];
+
+    setSelectedTicket(ticketsData[ticketIndex]);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setSelectedTicket(null);
+  };
+
   return (
     <div 
       className="ticket-received-page"
@@ -85,7 +219,7 @@ const TicketReceivedPage: React.FC<TicketReceivedPageProps> = ({ onBackToCreate,
       }}
     >
           {/* Sidebar */}
-          <Sidebar currentPage="Tickets recibidos" onLogout={onLogout} />
+          <Sidebar currentPage="Tickets recibidos" onLogout={onLogout} onNavigate={onNavigate} />
       
       {/* Main Content */}
       <main className="ticket-received-main">
@@ -117,24 +251,50 @@ const TicketReceivedPage: React.FC<TicketReceivedPageProps> = ({ onBackToCreate,
 
             <div className="filters-container">
               <div className="filter-group">
-                <select 
-                  value={showFilter} 
-                  onChange={(e) => setShowFilter(e.target.value)}
-                  className="filter-select"
-                >
-                  <option value="">Mostrar</option>
-                  <option value="all">Todos</option>
-                  <option value="new">Nuevos</option>
-                  <option value="assigned">Asignados</option>
-                </select>
-              </div>
-
-              <div className="filter-group">
+                <label className="filter-label">Mostrar</label>
                 <div className="custom-dropdown">
                   <button
                     type="button"
                     className="custom-dropdown-button"
-                    onClick={() => setShowDepartmentDropdown(!showDepartmentDropdown)}
+                    onClick={toggleShowFilterDropdown}
+                  >
+                    <span className="dropdown-text">
+                      {showFilter ? 
+                        (showFilter === 'all' ? 'Todos' :
+                         showFilter === 'normal' ? 'Normal' :
+                         showFilter === 'high' ? 'Alta' :
+                         showFilter === 'urgent' ? 'Urgente' : showFilter) 
+                        : 'Todos'
+                      }
+                    </span>
+                    <img src="/img/arrow_down-icon.png" alt="▼" className="dropdown-arrow" />
+                  </button>
+                  {showShowFilterDropdown && (
+                    <div className="custom-dropdown-menu">
+                      <div className="dropdown-option" onClick={() => handleShowFilterSelect('all')}>
+                        Todos
+                      </div>
+                      <div className="dropdown-option" onClick={() => handleShowFilterSelect('normal')}>
+                        Normal
+                      </div>
+                      <div className="dropdown-option" onClick={() => handleShowFilterSelect('high')}>
+                        Alta
+                      </div>
+                      <div className="dropdown-option" onClick={() => handleShowFilterSelect('urgent')}>
+                        Urgente
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="filter-group">
+                <label className="filter-label">Departamento</label>
+                <div className="custom-dropdown">
+                  <button
+                    type="button"
+                    className="custom-dropdown-button"
+                    onClick={toggleDepartmentDropdown}
                   >
                     <span className="dropdown-text">
                       {departmentFilter ? 
@@ -146,7 +306,7 @@ const TicketReceivedPage: React.FC<TicketReceivedPageProps> = ({ onBackToCreate,
                         : 'Todos'
                       }
                     </span>
-                    <span className="dropdown-arrow">▼</span>
+                    <img src="/img/arrow_down-icon.png" alt="▼" className="dropdown-arrow" />
                   </button>
                   {showDepartmentDropdown && (
                     <div className="custom-dropdown-menu">
@@ -171,11 +331,12 @@ const TicketReceivedPage: React.FC<TicketReceivedPageProps> = ({ onBackToCreate,
               </div>
 
               <div className="filter-group">
+                <label className="filter-label">Estado</label>
                 <div className="custom-dropdown">
                   <button
                     type="button"
                     className="custom-dropdown-button"
-                    onClick={() => setShowStatusDropdown(!showStatusDropdown)}
+                    onClick={toggleStatusDropdown}
                   >
                     <span className="dropdown-text">
                       {statusFilter ? 
@@ -187,7 +348,7 @@ const TicketReceivedPage: React.FC<TicketReceivedPageProps> = ({ onBackToCreate,
                         : 'Todos'
                       }
                     </span>
-                    <span className="dropdown-arrow">▼</span>
+                    <img src="/img/arrow_down-icon.png" alt="▼" className="dropdown-arrow" />
                   </button>
                   {showStatusDropdown && (
                     <div className="custom-dropdown-menu">
@@ -260,7 +421,7 @@ const TicketReceivedPage: React.FC<TicketReceivedPageProps> = ({ onBackToCreate,
                     </div>
                   </td>
                   <td>
-                    <button className="manage-button">Gestionar</button>
+                    <button className="manage-button" onClick={() => handleManageTicket(0)}>Gestionar</button>
                   </td>
                 </tr>
                 <tr className={selectedRows.has(1) ? 'selected-row' : ''}>
@@ -288,7 +449,7 @@ const TicketReceivedPage: React.FC<TicketReceivedPageProps> = ({ onBackToCreate,
                     </div>
                   </td>
                   <td>
-                    <button className="manage-button">Gestionar</button>
+                    <button className="manage-button" onClick={() => handleManageTicket(1)}>Gestionar</button>
                   </td>
                 </tr>
                 <tr className={selectedRows.has(2) ? 'selected-row' : ''}>
@@ -316,7 +477,7 @@ const TicketReceivedPage: React.FC<TicketReceivedPageProps> = ({ onBackToCreate,
                     </div>
                   </td>
                   <td>
-                    <button className="manage-button">Gestionar</button>
+                    <button className="manage-button" onClick={() => handleManageTicket(2)}>Gestionar</button>
                   </td>
                 </tr>
                 <tr className={selectedRows.has(3) ? 'selected-row' : ''}>
@@ -344,7 +505,7 @@ const TicketReceivedPage: React.FC<TicketReceivedPageProps> = ({ onBackToCreate,
                     </div>
                   </td>
                   <td>
-                    <button className="manage-button">Gestionar</button>
+                    <button className="manage-button" onClick={() => handleManageTicket(3)}>Gestionar</button>
                   </td>
                 </tr>
                 <tr className={selectedRows.has(4) ? 'selected-row' : ''}>
@@ -372,7 +533,7 @@ const TicketReceivedPage: React.FC<TicketReceivedPageProps> = ({ onBackToCreate,
                     </div>
                   </td>
                   <td>
-                    <button className="manage-button">Gestionar</button>
+                    <button className="manage-button" onClick={() => handleManageTicket(4)}>Gestionar</button>
                   </td>
                 </tr>
                 <tr className={selectedRows.has(5) ? 'selected-row' : ''}>
@@ -400,7 +561,7 @@ const TicketReceivedPage: React.FC<TicketReceivedPageProps> = ({ onBackToCreate,
                     </div>
                   </td>
                   <td>
-                    <button className="manage-button">Gestionar</button>
+                    <button className="manage-button" onClick={() => handleManageTicket(5)}>Gestionar</button>
                   </td>
                 </tr>
               </tbody>
@@ -421,6 +582,14 @@ const TicketReceivedPage: React.FC<TicketReceivedPageProps> = ({ onBackToCreate,
           </div>
         </div>
       </main>
+
+      {/* Modal de detalles del ticket */}
+      {showModal && selectedTicket && (
+        <TicketDetailsModal
+          ticket={selectedTicket}
+          onClose={handleCloseModal}
+        />
+      )}
     </div>
   );
 };
