@@ -22,6 +22,15 @@
   box-sizing: border-box;
 }
 
+/* DO NOT reset borders on inputs, selects, textareas */
+.tsp-page input,
+.tsp-page select,
+.tsp-page textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
 /* Main Content */
 .tsp-main {
   flex: 1;
